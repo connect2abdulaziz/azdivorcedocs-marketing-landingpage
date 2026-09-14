@@ -1,73 +1,195 @@
 export const DIALOG_MESSAGES = {
   start: {
-    title: 'Your first step starts here.',
-    body: 'Online intake is not connected to this website yet. This preview shows where clients will begin their divorce journey. No case or personal information is submitted here.',
+    title: 'Continue your intake.',
+    body: 'Online intake is not fully connected to this website yet. Your qualification answers will carry into the intake flow when the portal is live. No payment is required to answer the initial questions.',
   },
   portal: {
-    title: 'Your client portal.',
+    title: 'Client login',
     body: 'The client login and dashboard are not connected to this website yet. Account access will be available here when the portal is ready.',
   },
   quote: {
-    title: 'Pricing for your situation.',
-    body: 'Final fees depend on your case and the agreed services. Published rates and the pricing inquiry channel have not been added yet. This preview does not request payment or submit an inquiry.',
+    title: 'See which option fits your case',
+    body: 'Based on your answers, we will recommend the package that matches your situation. Package confirmation and payment happen after qualification — not before.',
   },
 };
 
-export const SERVICES = [
+export const NAV_LINKS = [
+  { href: '#how-it-works', label: 'How It Works' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#arizona', label: 'Arizona Divorce' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+export const WHY_CARDS = [
   {
-    label: 'Prepare',
+    icon: 'pin',
+    title: 'Arizona Focused',
+    body: 'Our document preparation process is designed specifically for Arizona divorce cases.',
+  },
+  {
     icon: 'document',
-    title: ['Divorce documents,', 'prepared for you.'],
-    body: 'We turn your case information into the documents you need and help address missing details before the next step.',
-    tag: 'Less paperwork on your shoulders',
+    title: 'Simple Online Questionnaire',
+    body: 'Answer questions about your marriage, children, property, debts and other information needed to prepare your documents.',
   },
   {
-    label: 'Organize',
     icon: 'folder',
-    title: ['Your case,', 'kept in order.'],
-    body: 'Guided information collection and organized case steps help keep your documents and important details together.',
-    tag: 'A simpler way to move forward',
+    title: 'Professional Document Preparation',
+    body: 'Your information is used to prepare the Arizona divorce documents applicable to the service you select.',
   },
   {
-    label: 'Understand',
-    icon: 'landmark',
-    title: ['Court steps,', 'clearly explained.'],
-    body: 'Understand what your paperwork is for, what needs attention, and how to prepare for the court steps ahead.',
-    tag: 'Clear language. Practical direction.',
+    icon: 'users',
+    title: 'Real Human Support',
+    body: 'Need assistance completing the document preparation process? Help is available from an Arizona Certified Legal Document Preparer.',
   },
 ];
 
 export const PROCESS_STEPS = [
   {
-    icon: 'message',
-    title: 'Tell us about your situation.',
-    body: 'Share the relevant details about your marriage, family, property, and priorities through guided questions.',
+    number: '1',
+    title: 'Tell Us About Your Situation',
+    body: 'Complete our secure online questionnaire.',
   },
   {
-    icon: 'document',
-    title: 'We prepare your documents.',
-    body: 'We organize your information, work through the details, and prepare the paperwork for your case.',
+    number: '2',
+    title: 'Your Documents Are Prepared',
+    body: 'Your information is used to prepare your Arizona divorce documents.',
   },
   {
-    icon: 'compass',
-    title: 'Move forward with direction.',
-    body: 'Understand your prepared documents and the court-related steps that follow, with support along the way.',
+    number: '3',
+    title: 'Review & Sign',
+    body: 'Review your documents and follow the provided signing instructions.',
+  },
+  {
+    number: '4',
+    title: 'File Your Documents',
+    body: 'Depending on the package selected, file the documents yourself or receive filing assistance.',
+  },
+  {
+    number: '5',
+    title: 'Continue Through the Divorce Process',
+    body: 'Follow the required Arizona court procedures and complete the remaining documents applicable to your case.',
   },
 ];
 
-export const RIBBON_ITEMS = [
-  { icon: 'document', label: 'Professional document preparation' },
-  { icon: 'folder', label: 'Organized case support' },
-  { icon: 'compass', label: 'Clear court-process guidance' },
+export const PRICING_PACKAGES = [
+  {
+    id: 'diy',
+    name: 'DIY Online',
+    price: '$450',
+    blurb: 'Best for customers comfortable handling more of the process themselves.',
+    popular: false,
+    cta: 'Start Online — $450',
+    features: [
+      'Online divorce questionnaire',
+      'Personalized Arizona divorce documents',
+      'Secure client account',
+      'Download your documents',
+      'Document instructions',
+      'Edit your information before documents are finalized',
+    ],
+  },
+  {
+    id: 'guided',
+    name: 'Fully Guided',
+    price: '$799',
+    blurb: 'For customers who want more personal assistance with the document preparation and filing process.',
+    popular: true,
+    cta: 'Get Fully Guided — $799',
+    features: [
+      'Everything included in the online package',
+      'Personal document preparation assistance',
+      'Document review for completeness',
+      'Filing assistance',
+      'Step-by-step procedural information',
+      'Assistance with additional documents included within the selected service',
+    ],
+  },
 ];
 
-export const QUOTE_DETAILS = [
-  { icon: 'document', label: 'Document preparation' },
-  { icon: 'users', label: 'Case support options' },
-  { icon: 'info', label: 'Applicable court fees clarified separately' },
+export const ARIZONA_POINTS = [
+  { icon: 'document', label: 'Arizona Divorce Documents' },
+  { icon: 'shield', label: 'Arizona Certified Legal Document Preparer' },
+  { icon: 'users', label: 'With or Without Minor Children' },
+  { icon: 'folder', label: 'Property & Debt Cases' },
 ];
 
-export const ASSURANCE_ITEMS = [
-  { icon: 'shield', label: 'Lawyer-led preparation' },
-  { icon: 'spark', label: 'Simple online steps' },
+export const COMPARISON_ROWS = [
+  { feature: 'Upfront package pricing', us: true, attorney: 'Often varies' },
+  { feature: 'Complete online', us: true, attorney: 'Varies' },
+  { feature: 'Arizona-focused documents', us: true, attorney: true },
+  { feature: 'Attorney representation', us: false, attorney: true },
+  { feature: 'Legal advice', us: false, attorney: true },
+  { feature: 'Starting service price', us: '$450', attorney: 'Varies' },
 ];
+
+export const FAQ_ITEMS = [
+  {
+    question: 'Is Legal Divorce Docs a law firm?',
+    answer:
+      'No. Legal Divorce Docs provides legal document preparation services. We do not provide legal advice or represent customers in court.',
+  },
+  {
+    question: 'Who prepares my divorce documents?',
+    answer:
+      'Your documents are prepared through our Arizona document preparation process based on the information you provide. Certified Legal Document Preparer information is displayed where applicable.',
+  },
+  {
+    question: 'Can I use the service if I have children?',
+    answer:
+      'Yes. Our system supports qualifying Arizona divorce cases with and without minor children.',
+  },
+  {
+    question: 'What if we have property or debts?',
+    answer:
+      'The questionnaire identifies property and debt information so the appropriate documents can be prepared based on the service purchased.',
+  },
+  {
+    question: 'Are court filing fees included?',
+    answer:
+      'No, unless specifically stated otherwise. Court filing fees and other third-party charges are separate from our service fees.',
+  },
+  {
+    question: 'Can you give me legal advice?',
+    answer:
+      'No. An Arizona Certified Legal Document Preparer can provide document preparation services and general legal information but cannot provide legal advice or represent you as an attorney.',
+  },
+  {
+    question: 'Can you file the documents for me?',
+    answer:
+      'Filing assistance is available with qualifying service packages. The exact services included are clearly identified before purchase.',
+  },
+];
+
+export const FOOTER_LINKS = [
+  { href: '#how-it-works', label: 'How It Works' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#arizona', label: 'Arizona Divorce' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' },
+];
+
+export const FOOTER_LEGAL = [
+  { href: '#privacy', label: 'Privacy Policy' },
+  { href: '#terms', label: 'Terms of Service' },
+  { href: '#refund', label: 'Refund Policy' },
+  { href: '#disclaimer', label: 'Disclaimer' },
+];
+
+export const HELP_OPTIONS = [
+  {
+    id: 'online',
+    title: 'Prepare My Documents Online',
+    body: 'Complete the questionnaire and receive prepared Arizona divorce documents.',
+  },
+  {
+    id: 'guided',
+    title: 'Help Me With the Document Process',
+    body: 'Get personal assistance with document preparation and filing support.',
+  },
+];
+
+/** Replace with your licensed CLDP details before launch. */
+export const CLDP_INFO = {
+  name: '[Certified Legal Document Preparer Name]',
+  certification: 'Arizona Certified Legal Document Preparer #[Certification Number]',
+};

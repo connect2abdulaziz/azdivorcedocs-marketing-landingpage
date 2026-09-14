@@ -1,24 +1,25 @@
-import { Icon } from '../ui/Icon';
+import { NAV_LINKS } from '../../content';
+import { PrimaryButton } from '../ui/PrimaryButton';
 
-export function MobileNav({ open, onClose, onOpenDialog }) {
+export function MobileNav({ open, onClose, onStart, onSignIn }) {
   return (
     <nav id="mobile-nav" aria-label="Mobile navigation" hidden={!open}>
-      <a href="#services" onClick={onClose}>
-        <Icon name="scale" size={18} />
-        Services
-      </a>
-      <a href="#pricing" onClick={onClose}>
-        <Icon name="info" size={18} />
-        Pricing
-      </a>
-      <button type="button" onClick={() => onOpenDialog('portal')}>
-        <Icon name="user" size={18} />
-        Login
+      {NAV_LINKS.map((link) => (
+        <a key={link.href} href={link.href} onClick={onClose}>
+          {link.label}
+        </a>
+      ))}
+      <button type="button" onClick={onSignIn}>
+        Sign In
       </button>
-      <button type="button" onClick={() => onOpenDialog('start')}>
-        <Icon name="document" size={18} />
-        Start your divorce
-      </button>
+      <PrimaryButton
+        onClick={() => {
+          onClose();
+          onStart();
+        }}
+      >
+        Start My Divorce
+      </PrimaryButton>
     </nav>
   );
 }

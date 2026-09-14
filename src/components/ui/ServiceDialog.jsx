@@ -2,11 +2,26 @@ import { useEffect, useRef } from 'react';
 import { DIALOG_MESSAGES } from '../../content';
 import { Icon } from './Icon';
 import { PrimaryButton } from './PrimaryButton';
-import { Eyebrow } from './Eyebrow';
 
-export function ServiceDialog({ dialogKey, onClose }) {
+function summarizeQualification(qualification) {
+  if (!qualification) return null;
+
+  const children =
+    qualification.children === 'yes' ? 'Children under 18: Yes' : 'Children under 18: No';
+  const property =
+    qualification.property === 'yes' ? 'Property or debts: Yes' : 'Property or debts: No';
+  const help =
+    qualification.help === 'guided'
+      ? 'Help preference: Fully guided process'
+      : 'Help preference: Prepare documents online';
+
+  return [children, property, help];
+}
+
+export function ServiceDialog({ dialogKey, qualification, onClose }) {
   const dialogRef = useRef(null);
   const message = dialogKey ? DIALOG_MESSAGES[dialogKey] : null;
+  const summary = summarizeQualification(qualification);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -45,9 +60,16 @@ export function ServiceDialog({ dialogKey, onClose }) {
       <button className="dialog-close" aria-label="Close dialog" onClick={onClose}>
         <Icon name="close" size={18} />
       </button>
-      <Eyebrow>LEGAL DIVORCE DOCS</Eyebrow>
+      <p className="dialog-kicker">Legal Divorce Docs</p>
       <h2 id="dialog-title">{message?.title ?? ''}</h2>
       <p id="dialog-description">{message?.body ?? ''}</p>
+      {summary ? (
+        <ul className="dialog-summary">
+          {summary.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
       <PrimaryButton className="dialog-done" onClick={onClose}>
         Back to the website
       </PrimaryButton>

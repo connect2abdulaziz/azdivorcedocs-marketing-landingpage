@@ -1,63 +1,51 @@
+import { CLDP_INFO, FOOTER_LEGAL, FOOTER_LINKS } from '../../content';
 import { Brand } from '../ui/Brand';
-import { Icon } from '../ui/Icon';
 
-export function Footer({ onOpenDialog }) {
+export function Footer({ onSignIn }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="professional-footer">
-      <div className="footer-main">
+    <footer className="site-footer" id="contact">
+      <div className="footer-grid">
         <div className="footer-brand">
           <Brand loading="lazy" />
-          <p>
-            Lawyer-led document preparation.
+          <p className="footer-tagline">Arizona Divorce Document Preparation</p>
+          <p className="footer-disclaimer">
+            Legal Divorce Docs is not a law firm and does not provide legal advice or legal
+            representation. Services are provided for self-represented individuals.
+          </p>
+          <p className="footer-cldp">
+            {CLDP_INFO.name}
             <br />
-            A clearer path through divorce.
+            {CLDP_INFO.certification}
           </p>
         </div>
+
         <div className="footer-column">
           <h3>Explore</h3>
-          <a href="#services">Our services</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#pricing">Pricing</a>
+          {FOOTER_LINKS.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+          <button type="button" onClick={onSignIn}>
+            Client Login
+          </button>
         </div>
+
         <div className="footer-column">
-          <h3>Your next step</h3>
-          <button type="button" onClick={() => onOpenDialog('start')}>
-            Start your divorce
-          </button>
-          <button type="button" onClick={() => onOpenDialog('portal')}>
-            Login
-          </button>
-          <button type="button" onClick={() => onOpenDialog('quote')}>
-            Pricing inquiry
-          </button>
-        </div>
-        <div className="footer-column footer-note">
-          <h3>Built around you</h3>
-          <p>
-            Clear communication.
-            <br />
-            Thoughtful preparation.
-            <br />
-            Professional support.
-          </p>
-          <span>
-            <Icon name="pin" size={12} />
-            Arizona, USA
-          </span>
+          <h3>Policies</h3>
+          {FOOTER_LEGAL.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
-      <div className="footer-legal">
+
+      <div className="footer-bottom">
         <span>© {year} Legal Divorce Docs. All rights reserved.</span>
-        <p>
-          General service information only. Viewing this site does not establish an attorney-client
-          relationship. Services and fees are subject to an agreed scope.
-        </p>
-        <a href="#main">
-          Back to top
-          <Icon name="chevronUp" size={14} />
-        </a>
+        <a href="#main">Back to top</a>
       </div>
     </footer>
   );

@@ -1,22 +1,16 @@
 import { PrimaryButton } from '../ui/PrimaryButton';
-import { Eyebrow } from '../ui/Eyebrow';
 
-export function ClosingSection({ onOpenDialog }) {
+export function ClosingSection({ onStart }) {
   return (
-    <section className="closing reveal">
-      <Eyebrow>A CLEARER FIRST STEP</Eyebrow>
-      <h2>
-        Let’s make the next
-        <br />
-        chapter <em>feel possible.</em>
-      </h2>
-      <p>
-        Professional support for your paperwork.
-        <br />
-        More room to focus on your future.
-      </p>
-      <PrimaryButton onClick={() => onOpenDialog('start')}>Start your divorce</PrimaryButton>
-      <span className="closing-location">SERVING ARIZONA</span>
+    <section className="final-cta" aria-labelledby="final-heading">
+      <div className="final-cta-inner reveal">
+        <h2 id="final-heading">Ready to Start Your Arizona Divorce?</h2>
+        <p>Answer a few questions about your situation and see which service fits your needs.</p>
+        <PrimaryButton className="cta-strong" onClick={onStart}>
+          Start My Divorce
+        </PrimaryButton>
+        <p className="final-note">It only takes a few minutes to get started.</p>
+      </div>
     </section>
   );
 }

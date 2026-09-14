@@ -1,33 +1,34 @@
 import { PROCESS_STEPS } from '../../content';
-import { Eyebrow } from '../ui/Eyebrow';
-import { IconWell } from '../ui/Icon';
+import { PrimaryButton } from '../ui/PrimaryButton';
 
-export function ProcessSection() {
+export function ProcessSection({ onStart }) {
   return (
-    <section className="process-section section-space" id="how-it-works">
-      <div className="section-top reveal">
-        <div>
-          <Eyebrow>HOW IT WORKS</Eyebrow>
-          <h2>
-            From “where do I start?”
-            <br />
-            <em>to “I know what’s next.”</em>
-          </h2>
-        </div>
-        <span className="process-caption">
-          Clear steps.
-          <br />
-          One supported start.
-        </span>
+    <section className="section process" id="how-it-works" aria-labelledby="process-heading">
+      <div className="section-intro reveal">
+        <h2 id="process-heading">From Starting Your Case to Completing Your Divorce</h2>
       </div>
-      <div className="process-steps">
-        {PROCESS_STEPS.map((step) => (
-          <article className="reveal" key={step.title}>
-            <IconWell name={step.icon} />
-            <h3>{step.title}</h3>
-            <p>{step.body}</p>
-          </article>
+
+      <ol className="process-track">
+        {PROCESS_STEPS.map((step, index) => (
+          <li className="process-step reveal" key={step.number}>
+            <span className="process-number">{step.number}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+            {index < PROCESS_STEPS.length - 1 ? (
+              <span className="process-arrow" aria-hidden="true">
+                →
+              </span>
+            ) : null}
+          </li>
         ))}
+      </ol>
+
+      <div className="section-cta reveal">
+        <PrimaryButton className="cta-strong" onClick={onStart}>
+          Get Started
+        </PrimaryButton>
       </div>
     </section>
   );

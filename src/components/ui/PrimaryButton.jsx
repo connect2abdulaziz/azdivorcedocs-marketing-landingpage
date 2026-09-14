@@ -6,6 +6,7 @@ export function PrimaryButton({
   variant,
   className = '',
   type = 'button',
+  disabled = false,
   ...props
 }) {
   const classes = ['primary-button', variant === 'white' && 'white', className]
@@ -13,7 +14,7 @@ export function PrimaryButton({
     .join(' ');
 
   return (
-    <button type={type} className={classes} {...props}>
+    <button type={type} className={classes} disabled={disabled} {...props}>
       {icon ? <Icon name={icon} size={18} /> : null}
       {children}
     </button>

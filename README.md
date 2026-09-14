@@ -1,6 +1,6 @@
 # Legal Divorce Docs
 
-Lawyer-led divorce support marketing site, built with React and Vite. The visual design, copy, cinema scroll, and campaign photography match the original static site.
+Arizona divorce document preparation marketing site, built with React and Vite. Conversion-focused homepage with quick qualification, upfront pricing, and clear non-law-firm positioning.
 
 ## Run locally
 
@@ -21,19 +21,15 @@ Then open the URL Vite prints, usually http://localhost:5173.
 
 - `src/components/ui/` — reusable UI pieces (buttons, brand, dialog, icons)
 - `src/components/layout/` — header, mobile nav, footer
-- `src/components/sections/` — page sections
-- `src/content.js` — services, process steps, and dialog copy
-- `src/styles.css` — original design, responsive layout, and motion
-- `public/assets/` — logo and campaign images
+- `src/components/sections/` — homepage sections
+- `src/content.js` — copy, pricing, FAQ, and CLDP placeholders
+- `src/styles.css` — layout and responsive styles
+- `public/assets/` — logo and imagery
 
-## Hosting
+## Before launch
 
-Run `npm run build` and upload the `dist/` folder to any static host.
-
-## Connection points
-
-Login/Dashboard, Start your divorce, and pricing inquiry currently open informational dialogs. Connect these buttons to your real portal, intake, and inquiry destinations before public launch.
-
-No backend, accounts, case automation, payment collection, or live intake is included in this marketing source. Confirm final pricing and service scope before publishing publicly.
-
-People shown in campaign imagery are AI-generated illustrations, not actual staff or client testimonials.
+- Replace `CLDP_INFO` in `src/content.js` with the licensed preparer name and certification number
+- Confirm exact services included in each package
+- Connect Start My Divorce / Sign In to the live intake and portal
+- Add verified Google reviews only (no fabricated testimonials)
+- Confirm Privacy, Terms, Refund, and Disclaimer page destinations

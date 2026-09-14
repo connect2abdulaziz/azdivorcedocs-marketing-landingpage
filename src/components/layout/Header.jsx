@@ -1,21 +1,23 @@
+import { NAV_LINKS } from '../../content';
 import { Brand } from '../ui/Brand';
-import { Icon } from '../ui/Icon';
 import { PrimaryButton } from '../ui/PrimaryButton';
 
-export function Header({ navOpen, onToggleNav, onOpenDialog }) {
+export function Header({ navOpen, onToggleNav, onStart, onSignIn }) {
   return (
     <header className="header">
       <Brand />
-      <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <button className="login-link" type="button" onClick={() => onOpenDialog('portal')}>
-          <Icon name="user" size={16} />
-          Login
+      <nav className="header-nav" aria-label="Main navigation">
+        {NAV_LINKS.map((link) => (
+          <a key={link.href} href={link.href}>
+            {link.label}
+          </a>
+        ))}
+        <button className="login-link" type="button" onClick={onSignIn}>
+          Sign In
         </button>
       </nav>
-      <PrimaryButton className="header-start" onClick={() => onOpenDialog('start')}>
-        Start your divorce
+      <PrimaryButton className="header-cta" onClick={onStart}>
+        Start My Divorce
       </PrimaryButton>
       <button
         className="mobile-toggle"
@@ -25,7 +27,7 @@ export function Header({ navOpen, onToggleNav, onOpenDialog }) {
         aria-controls="mobile-nav"
         onClick={onToggleNav}
       >
-        <Icon name={navOpen ? 'close' : 'menu'} size={22} />
+        <span className={navOpen ? 'burger open' : 'burger'} aria-hidden="true" />
       </button>
     </header>
   );
