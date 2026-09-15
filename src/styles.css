@@ -928,7 +928,8 @@ img {
   line-height: 1.7;
 }
 
-.faq-item.open {
+.faq-item.open,
+.faq-item[data-open='true'] {
   background: white;
   box-shadow: var(--shadow);
 }
@@ -1121,7 +1122,8 @@ dialog p {
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.motion .reveal.visible {
+.motion .reveal.visible,
+.motion .reveal[data-visible] {
   opacity: 1;
   transform: translateY(0);
 }
