@@ -18,7 +18,11 @@ export function FaqSection() {
           const buttonId = `${baseId}-button-${index}`;
 
           return (
-            <div className={isOpen ? 'faq-item open reveal' : 'faq-item reveal'} key={item.question}>
+            <div
+              className="faq-item reveal"
+              data-open={isOpen ? 'true' : undefined}
+              key={item.question}
+            >
               <h3>
                 <button
                   id={buttonId}
