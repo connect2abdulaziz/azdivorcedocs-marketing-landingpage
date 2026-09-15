@@ -13,6 +13,7 @@ export function usePageMotion() {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
+              entry.target.setAttribute('data-visible', '');
               observer.unobserve(entry.target);
             }
           });
